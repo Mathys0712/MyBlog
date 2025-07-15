@@ -3,9 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <title>Mon Blog</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; }
+    header { background: #222; color: #fff; padding: 1em 2em; }
+    nav a { color: #fff; margin-right: 1em; text-decoration: none; }
+    main { max-width: 700px; margin: 2em auto; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 8px #aaa2; }
+    .article { border-bottom: 1px solid #eee; padding: 1em 0; }
+    .article:last-child { border-bottom: none; }
+    .buttons { margin-top: 1em; }
+    .btn { background: #0057b8; color: #fff; border: none; padding: 0.5em 1em; border-radius: 4px; cursor: pointer; margin-right: 0.5em; }
+    .btn:hover { background: #003f7d; }
+    @media (max-width: 600px) { main { padding: 1em; } }
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur mon blog !</h1>
-  <p>Ceci est mon premier article 🎉</p>
+  <header>
+    <h1>Mon Blog</h1>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">À propos</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <button class="btn" onclick="alert('Fonction à ajouter pour créer un nouvel article')">Ajouter un article</button>
+    <div class="article">
+      <h2>Mon premier article</h2>
+      <p>Ceci est mon premier article 🎉</p>
+      <div class="buttons">
+        <button class="btn" onclick="likeArticle(this)">❤️ J’aime</button>
+        <span class="like-count">0</span> likes
+      </div>
+    </div>
+    <div class="article">
+      <h2>Un autre article</h2>
+      <p>Bienvenue sur mon blog amélioré avec des boutons et un peu de style !</p>
+      <div class="buttons">
+        <button class="btn" onclick="likeArticle(this)">❤️ J’aime</button>
+        <span class="like-count">0</span> likes
+      </div>
+    </div>
+  </main>
+  <script>
+    function likeArticle(btn) {
+      let countSpan = btn.nextElementSibling;
+      let count = parseInt(countSpan.textContent);
+      countSpan.textContent = count + 1;
+    }
+  </script>
 </body>
 </html>
